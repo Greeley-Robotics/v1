@@ -3,6 +3,8 @@
 // the WPILib BSD license file in the root directory of this project.
 // Ryan, Mark, Andrei, Lucas, Chris, Ben
 
+// Ryan, Mark, Chris, Andrei, Lucus, Ben (Programmers)
+
 package frc.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
