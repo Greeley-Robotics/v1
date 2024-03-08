@@ -4,25 +4,25 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.motorcontrol.Spark;
+import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.commands.DriveForward;
 
-public class ExampleSubsystem extends SubsystemBase {
+public class Drivetrain extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {}
+  public Drivetrain() {}
 
   /**
-   * Example command factory method.
+   * driveForwardCommand factory method
    *
-   * @return a command
+   * @return driveFowardCommand
    */
-  public Command exampleMethodCommand() {
+  public Command driveForwardCommand() {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
-    return runOnce(
-        () -> {
-          /* one-time action goes here */
-        });
+    return new DriveForward(this); 
   }
 
   /**
