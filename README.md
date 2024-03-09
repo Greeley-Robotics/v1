@@ -19,7 +19,7 @@ Please refer to [Master Docs](https://github.com/Greeley-Robotics/Master-Docs/bl
 ### Installation
 1. Clone this repository to your local machine.
    ```bash
-   git clone https://github.com/YourTeam/2024-robotics-code.git
+   git clone https://github.com/Greeley-Robotics/v1.git
 
 ## Usage
 1. Ensure proper hardware wiring on the physical robot.
