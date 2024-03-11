@@ -15,7 +15,7 @@ public class Controller extends SubsystemBase {
    *
    * @return driveFowardCommand
    */
-  public Command driveForwardCommand() {
+  public Command joystickUp () {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     // return new DriveForward(this); 
