@@ -18,6 +18,6 @@ public final class Constants {
   }
 
   public static class DrivetrainConstants {
-    public static final int kMotorControllerPort1 = 0;
+    public static final int kMotorControllerPort1 = 1;
   }
 }
