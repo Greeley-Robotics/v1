@@ -15,6 +15,8 @@ public class DriveForward extends Command {
   private final Drivetrain m_subsystem;
   private final Spark spark;
 
+  private double valToSet;
+
   /**
    * Creates a new ExampleCommand.
    *
@@ -22,6 +24,7 @@ public class DriveForward extends Command {
    */
   public DriveForward(Drivetrain subsystem) {
     m_subsystem = subsystem;
+    valToSet = 0.5;
     spark = new Spark(DrivetrainConstants.kMotorControllerPort1);
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
@@ -30,13 +33,13 @@ public class DriveForward extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    spark.set(-0.75);
+    spark.set(0.0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-  
+    spark.set(valToSet);
   }
 
   // Called once the command ends or is interrupted.
