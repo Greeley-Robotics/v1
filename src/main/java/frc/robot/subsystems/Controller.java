@@ -1,8 +1,4 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
-package frc.robot.subsystems;
+package main.java.frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
@@ -10,19 +6,19 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.commands.DriveForward;
 
-public class Drivetrain extends SubsystemBase {
+public class Controller extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  public Drivetrain() {}
+  public Controller() {}
 
   /**
    * driveForwardCommand factory method
    *
    * @return driveFowardCommand
    */
-  public Command driveForwardCommand() {
+  public Command joystickUp () {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
-    return new DriveForward(this); 
+    // return new DriveForward(this); 
   }
 
   /**
