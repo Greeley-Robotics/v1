@@ -30,7 +30,7 @@ Please refer to [Master Docs](https://github.com/Greeley-Robotics/Master-Docs/bl
 1. Fork the repository and create a new branch for your feature or bug fix.
 2. Ensure that your code follows the coding conventions specified in the [Conventions](https://github.com/Greeley-Robotics/conventions) document.
 3. Test your changes thoroughly before submitting a pull request.
-4. Submit your pull request to the `Test` branch for review.
+4. Submit your pull request to the `dev` branch for review.
 5. After review, your changes may be merged into the main branch.
 
 ## License
