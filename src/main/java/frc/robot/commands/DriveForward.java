@@ -6,15 +6,13 @@ package frc.robot.commands;
 
 import static frc.robot.Constants.DrivetrainConstants;
 import frc.robot.subsystems.Drivetrain;
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
+import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
 public class DriveForward extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Drivetrain m_subsystem;
-  private final Spark spark;
-
   private double valToSet;
 
   /**
@@ -25,7 +23,6 @@ public class DriveForward extends Command {
   public DriveForward(Drivetrain subsystem) {
     m_subsystem = subsystem;
     valToSet = 0.5;
-    spark = new Spark(DrivetrainConstants.kMotorControllerPort1);
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -33,19 +30,19 @@ public class DriveForward extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    spark.set(0.0);
+    m_subsystem.sparkMax1.set(0.0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    spark.set(valToSet);
+    m_subsystem.sparkMax1.set(valToSet);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    spark.stopMotor();
+    m_subsystem.sparkMax1.stopMotor();
   }
 
   // Returns true when the command should end.

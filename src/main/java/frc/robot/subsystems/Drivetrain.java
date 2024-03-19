@@ -4,15 +4,20 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
-import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
+import static frc.robot.Constants.DrivetrainConstants;
+import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.commands.DriveForward;
 
 public class Drivetrain extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  public Drivetrain() {}
+  public final PWMSparkMax sparkMax1;
+
+  public Drivetrain() {
+    sparkMax1 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort1);
+  }
 
   /**
    * driveForwardCommand factory method
