@@ -46,7 +46,7 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_drivetrain::move)
+    new Trigger(m_driverController.a())
         .onTrue(new DriveForward(m_drivetrain));
         
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
