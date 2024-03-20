@@ -25,6 +25,7 @@ public class DriveForward extends Command {
     valToSet = 0.5;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
+    System.out.println("a button was pressed!");
   }
 
   // Called when the command is initially scheduled.
