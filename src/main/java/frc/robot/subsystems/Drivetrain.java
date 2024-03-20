@@ -5,17 +5,25 @@
 package frc.robot.subsystems;
 
 import static frc.robot.Constants.DrivetrainConstants;
+
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DrivetrainConstants;
+import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.DriveForward;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 public class Drivetrain extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   public final PWMSparkMax sparkMax1;
 
-  public Drivetrain() {
+  private final CommandXboxController controller;
+
+  public Drivetrain(CommandXboxController control) {
+    controller = new CommandXboxController(OperatorConstants.kDriverControllerPort);
     sparkMax1 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort1);
   }
 
@@ -35,9 +43,13 @@ public class Drivetrain extends SubsystemBase {
    *
    * @return value of some boolean subsystem state, such as a digital sensor.
    */
-  public boolean exampleCondition() {
+  public boolean move() {
     // Query some boolean state, such as a digital sensor.
-    return true;
+    if(controller.a().getAsBoolean() == true) {
+      return true;
+    }
+    return false;
+    
   }
 
   @Override
