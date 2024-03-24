@@ -45,7 +45,6 @@ public class RobotContainer {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_drivetrain::exampleCondition)
         .onTrue(new DriveForward(m_drivetrain));
-
         
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
