@@ -37,6 +37,7 @@ public class DriveForward extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    System.out.println("EXECUTING!!!");
     m_subsystem.sparkMax1.set(valToSet);
   }
 

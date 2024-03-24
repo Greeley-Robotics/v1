@@ -5,8 +5,6 @@
 package frc.robot.subsystems;
 
 import static frc.robot.Constants.DrivetrainConstants;
-
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
