@@ -9,21 +9,20 @@ import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 
-/** An example command that uses an example subsystem. */
+/** DriveForward Command **/
 public class DriveForward extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Drivetrain m_subsystem;
   private double valToSet;
 
   /**
-   * Creates a new ExampleCommand.
+   * DriveForward Command constructor
    *
    * @param subsystem The subsystem used by this command.
    */
   public DriveForward(Drivetrain subsystem) {
     m_subsystem = subsystem;
     valToSet = 0.5;
-    // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
     System.out.println("a button was pressed!");
   }

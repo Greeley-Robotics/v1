@@ -27,11 +27,8 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Drivetrain m_drivetrain = new Drivetrain(m_driverController);
 
-  
-
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    // Configure the trigger bindings
     configureBindings();
   }
 
@@ -45,14 +42,9 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
+    // Schedule `DriveForward` command when a button is pressed
     new Trigger(m_driverController.a())
         .onTrue(new DriveForward(m_drivetrain));
-        
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release.
-
-    // m_driverController.b().whileTrue(m_drivetrain.driveForwardCommand());
   }
 
   /**

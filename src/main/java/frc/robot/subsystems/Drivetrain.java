@@ -14,8 +14,8 @@ import frc.robot.commands.DriveForward;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
+/** Drivetrain subsystem */
 public class Drivetrain extends SubsystemBase {
-  /** Creates a new ExampleSubsystem. */
   public final PWMSparkMax sparkMax1;
 
   private final CommandXboxController controller;
@@ -37,11 +37,11 @@ public class Drivetrain extends SubsystemBase {
   }
 
   /**
-   * An example method querying a boolean state of the subsystem (for example, a digital sensor).
+   * Get the current value of the `a` button
    *
-   * @return value of some boolean subsystem state, such as a digital sensor.
+   * @return value of `a` button on controller
    */
-  public boolean move() {
+  public boolean aButton() {
     // Query some boolean state, such as a digital sensor.
     if(controller.a().getAsBoolean() == true) {
       return true;
