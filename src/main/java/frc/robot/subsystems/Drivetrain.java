@@ -17,10 +17,9 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 /** Drivetrain subsystem */
 public class Drivetrain extends SubsystemBase {
   public final PWMSparkMax sparkMax1;
+  private CommandXboxController controller;
 
-  private final CommandXboxController controller;
-
-  public Drivetrain(CommandXboxController control) {
+  public Drivetrain(CommandXboxController controller) {
     controller = new CommandXboxController(OperatorConstants.kDriverControllerPort);
     sparkMax1 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort1);
   }
@@ -41,13 +40,13 @@ public class Drivetrain extends SubsystemBase {
    *
    * @return value of `a` button on controller
    */
-  public boolean aButton() {
-    // Query some boolean state, such as a digital sensor.
-    if(controller.a().getAsBoolean() == true) {
-      return true;
-    }
-    return false;
-  }
+  // public boolean exampleCondition() {
+  //   // Query some boolean state, such as a digital sensor.
+  //   if(controller.a().getAsBoolean() == true) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   @Override
   public void periodic() {
