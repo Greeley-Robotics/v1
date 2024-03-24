@@ -47,7 +47,6 @@ public class Drivetrain extends SubsystemBase {
       return true;
     }
     return false;
-    
   }
 
   @Override

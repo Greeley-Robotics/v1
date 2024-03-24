@@ -6,6 +6,7 @@ package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
+import frc.robot.commands.DriveBackward;
 import frc.robot.commands.DriveForward;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -43,8 +44,10 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `DriveForward` command when a button is pressed
+    new Trigger(m_driverController.y())
+        .whileTrue(new DriveForward(m_drivetrain));
     new Trigger(m_driverController.a())
-        .onTrue(new DriveForward(m_drivetrain));
+        .whileTrue(new DriveBackward(m_drivetrain));
   }
 
   /**
