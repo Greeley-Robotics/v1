@@ -5,8 +5,8 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.Autos;
-import frc.robot.commands.DriveBackward;
 import frc.robot.commands.DriveForward;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -31,6 +31,11 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     configureBindings();
+
+    m_drivetrain.setDefaultCommand(new ArcadeDrive(m_drivetrain,
+      () -> m_driverController.getRawAxis(OperatorConstants.kArcadeDriveSpeedAxis),
+      () -> m_driverController.getRawAxis(OperatorConstants.kArcadeDriveTurnAxis)
+    ));
   }
 
   /**
@@ -46,14 +51,12 @@ public class RobotContainer {
     // Schedule `DriveForward` command when a button is pressed
     new Trigger(m_driverController.y())
         .whileTrue(new DriveForward(m_drivetrain));
-    new Trigger(m_driverController.a())
-        .whileTrue(new DriveBackward(m_drivetrain));
   }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
-   * @return the command to run in autonomous
+   * @return the driveForwardAuto command
    */
   public Command getDriveForwardAuto() {
     // An example command will be run in autonomous
