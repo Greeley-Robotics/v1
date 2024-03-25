@@ -30,6 +30,7 @@ public class DriveForward extends Command {
   @Override
   public void initialize() {
     m_drivetrain.sparkMax1.set(0.0);
+    m_drivetrain.sparkMax2.set(0.0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -37,12 +38,15 @@ public class DriveForward extends Command {
   public void execute() {
     System.out.println("EXECUTING!!!");
     m_drivetrain.sparkMax1.set(valToSet);
+    m_drivetrain.sparkMax2.set(valToSet);
   }
+  
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
     m_drivetrain.sparkMax1.stopMotor();
+    m_drivetrain.sparkMax2.stopMotor();
   }
 
   // Returns true when the command should end.
