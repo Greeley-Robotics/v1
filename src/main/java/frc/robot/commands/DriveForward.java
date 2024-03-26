@@ -5,45 +5,44 @@
 package frc.robot.commands;
 
 import static frc.robot.Constants.DrivetrainConstants;
+import static frc.robot.Constants.AutonomousConstants;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 
-/** An example command that uses an example subsystem. */
+/** DriveForward Command **/
 public class DriveForward extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Drivetrain m_subsystem;
-  private double valToSet;
+  private final Drivetrain m_drivetrain;
+  private double valToSet = AutonomousConstants.kAutoDriveForwardSpeed;
 
   /**
-   * Creates a new ExampleCommand.
+   * DriveForward Command constructor
    *
    * @param subsystem The subsystem used by this command.
    */
   public DriveForward(Drivetrain subsystem) {
-    m_subsystem = subsystem;
-    valToSet = 0.5;
-    // Use addRequirements() here to declare subsystem dependencies.
+    m_drivetrain = subsystem;
     addRequirements(subsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_subsystem.sparkMax1.set(0.0);
+    m_drivetrain.sparkMax1.set(0.0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     System.out.println("EXECUTING!!!");
-    m_subsystem.sparkMax1.set(valToSet);
+    m_drivetrain.sparkMax1.set(valToSet);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_subsystem.sparkMax1.stopMotor();
+    m_drivetrain.sparkMax1.stopMotor();
   }
 
   // Returns true when the command should end.

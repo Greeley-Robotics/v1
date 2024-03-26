@@ -5,6 +5,7 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.Autos;
 import frc.robot.commands.DriveForward;
 import frc.robot.subsystems.Drivetrain;
@@ -19,17 +20,22 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  * subsystems, commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
-  private final Drivetrain m_drivetrain = new Drivetrain();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
+  // The robot's subsystems and commands are defined here...
+  private final Drivetrain m_drivetrain = new Drivetrain(m_driverController);
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    // Configure the trigger bindings
     configureBindings();
+
+    m_drivetrain.setDefaultCommand(new ArcadeDrive(m_drivetrain,
+      () -> m_driverController.getRawAxis(OperatorConstants.kArcadeDriveSpeedAxis),
+      () -> m_driverController.getRawAxis(OperatorConstants.kArcadeDriveTurnAxis)
+    ));
   }
 
   /**
@@ -42,22 +48,17 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_drivetrain::exampleCondition)
-        .onTrue(new DriveForward(m_drivetrain));
-        
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release.
-
-    // m_driverController.b().whileTrue(m_drivetrain.driveForwardCommand());
+    // Schedule `DriveForward` command when a button is pressed
+    new Trigger(m_driverController.y())
+        .whileTrue(new DriveForward(m_drivetrain));
   }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
-   * @return the command to run in autonomous
+   * @return the driveForwardAuto command
    */
-  public Command getAutonomousCommand() {
+  public Command getDriveForwardAuto() {
     // An example command will be run in autonomous
     return Autos.driveFowardAuto(m_drivetrain);
   }

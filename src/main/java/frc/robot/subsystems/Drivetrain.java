@@ -4,17 +4,23 @@
 
 package frc.robot.subsystems;
 
+import static frc.robot.Constants.DrivetrainConstants;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DrivetrainConstants;
+import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.DriveForward;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 
+/** Drivetrain subsystem */
 public class Drivetrain extends SubsystemBase {
-  /** Creates a new ExampleSubsystem. */
   public final PWMSparkMax sparkMax1;
+  private CommandXboxController controller;
 
-  public Drivetrain() {
+  public Drivetrain(CommandXboxController controller) {
+    controller = new CommandXboxController(OperatorConstants.kDriverControllerPort);
     sparkMax1 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort1);
   }
 
@@ -30,14 +36,17 @@ public class Drivetrain extends SubsystemBase {
   }
 
   /**
-   * An example method querying a boolean state of the subsystem (for example, a digital sensor).
+   * Get the current value of the `a` button
    *
-   * @return value of some boolean subsystem state, such as a digital sensor.
+   * @return value of `a` button on controller
    */
-  public boolean exampleCondition() {
-    // Query some boolean state, such as a digital sensor.
-    return true;
-  }
+  // public boolean exampleCondition() {
+  //   // Query some boolean state, such as a digital sensor.
+  //   if(controller.a().getAsBoolean() == true) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   @Override
   public void periodic() {
