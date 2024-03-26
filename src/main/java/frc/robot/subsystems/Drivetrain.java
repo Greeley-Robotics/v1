@@ -18,7 +18,6 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class Drivetrain extends SubsystemBase {
   public final PWMSparkMax sparkMax1;
   public final PWMSparkMax sparkMax2;
-  private CommandXboxController controller;
 
   public Drivetrain(CommandXboxController controller) {
     controller = new CommandXboxController(OperatorConstants.kDriverControllerPort);
