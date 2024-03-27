@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DrivetrainConstants;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.driveCommands.DriveForward;
+import frc.robot.commands.driveCommands.DriveInterval;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
@@ -34,6 +35,10 @@ public class Drivetrain extends SubsystemBase {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return new DriveForward(this); 
+  }
+
+  public Command driveIntervalCommand() {
+    return new DriveInterval(this);
   }
 
   /**

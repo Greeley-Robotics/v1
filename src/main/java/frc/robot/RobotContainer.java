@@ -62,4 +62,8 @@ public class RobotContainer {
     // An example command will be run in autonomous
     return Autos.driveFowardAuto(m_drivetrain);
   }
+
+  public Command getDriveIntervalAuto() {
+    return Autos.driveIntervalAuto(m_drivetrain);
+  }
 }

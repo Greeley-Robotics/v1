@@ -29,6 +29,7 @@ public class ArcadeDrive extends Command {
 
         double movement = realTimeSpeed + realTimeTurn;
         m_drivetrain.sparkMax1.set(movement);
+        m_drivetrain.sparkMax2.set(movement);
     }
 
     @Override
