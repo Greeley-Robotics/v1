@@ -24,8 +24,9 @@ public class ArcadeDrive extends Command {
 
     @Override
     public void execute() {
-        double realTimeSpeed = speedFunction.get();
-        double realTimeTurn = turnFunction.get();
+        // Slow speed down to 60% & turning to 30% for better controllability
+        double realTimeSpeed = speedFunction.get() * 0.6;
+        double realTimeTurn = turnFunction.get() * 0.3;
 
         double leftMovement = realTimeSpeed + realTimeTurn;
         double rightMovement = realTimeSpeed - realTimeTurn;
