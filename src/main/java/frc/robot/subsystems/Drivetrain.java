@@ -4,7 +4,6 @@
 
 package frc.robot.subsystems;
 
-import static frc.robot.Constants.DrivetrainConstants;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -13,7 +12,6 @@ import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.driveCommands.DriveForward;
 import frc.robot.commands.driveCommands.DriveInterval;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /** Drivetrain subsystem */
 public class Drivetrain extends SubsystemBase {

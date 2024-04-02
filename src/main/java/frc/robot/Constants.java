@@ -27,7 +27,13 @@ public final class Constants {
     public static final int kMotorControllerPort4 = 4;
   }
 
+  public static class TurretConstants {
+    public static final int kMotorControllerPort5 = 5;
+    public static final int kMotorControllerPort6 = 6;
+  }
+
   public static class AutonomousConstants {
     public static final double kAutoDriveForwardSpeed = .5;
+    public static final double kTurretThrowSpeed = .3;
   }
 }
