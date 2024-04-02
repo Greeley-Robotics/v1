@@ -6,6 +6,8 @@ package frc.robot.commands.driveCommands;
 
 import static frc.robot.Constants.DrivetrainConstants;
 import static frc.robot.Constants.AutonomousConstants;
+
+import frc.robot.Constants.AutonomousConstants;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -29,24 +31,30 @@ public class DriveForward extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_drivetrain.sparkMax1.set(0.0);
-    m_drivetrain.sparkMax2.set(0.0);
+    m_drivetrain.driveSparkMax1.set(0.0);
+    m_drivetrain.driveSparkMax2.set(0.0);
+    m_drivetrain.driveSparkMax3.set(0.0);
+    m_drivetrain.driveSparkMax4.set(0.0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     System.out.println("EXECUTING!!!");
-    m_drivetrain.sparkMax1.set(valToSet);
-    m_drivetrain.sparkMax2.set(valToSet);
+    m_drivetrain.driveSparkMax1.set(valToSet);
+    m_drivetrain.driveSparkMax2.set(valToSet);
+    m_drivetrain.driveSparkMax3.set(-valToSet);
+    m_drivetrain.driveSparkMax4.set(-valToSet);
   }
   
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_drivetrain.sparkMax1.stopMotor();
-    m_drivetrain.sparkMax2.stopMotor();
+    m_drivetrain.driveSparkMax1.stopMotor();
+    m_drivetrain.driveSparkMax2.stopMotor();
+    m_drivetrain.driveSparkMax3.stopMotor();
+    m_drivetrain.driveSparkMax4.stopMotor();
   }
 
   // Returns true when the command should end.

@@ -17,13 +17,17 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /** Drivetrain subsystem */
 public class Drivetrain extends SubsystemBase {
-  public final PWMSparkMax sparkMax1;
-  public final PWMSparkMax sparkMax2;
+  public final PWMSparkMax driveSparkMax1;
+  public final PWMSparkMax driveSparkMax2;
+  public final PWMSparkMax driveSparkMax3;
+  public final PWMSparkMax driveSparkMax4;
 
   public Drivetrain(CommandXboxController controller) {
     controller = new CommandXboxController(OperatorConstants.kDriverControllerPort);
-    sparkMax1 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort1);
-    sparkMax2 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort2);
+    driveSparkMax1 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort1);
+    driveSparkMax2 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort2);
+    driveSparkMax3 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort3);
+    driveSparkMax4 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort4);
   }
 
   /**

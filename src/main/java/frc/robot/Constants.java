@@ -23,6 +23,8 @@ public final class Constants {
   public static class DrivetrainConstants {
     public static final int kMotorControllerPort1 = 1;
     public static final int kMotorControllerPort2 = 2;
+    public static final int kMotorControllerPort3 = 3;
+    public static final int kMotorControllerPort4 = 4;
   }
 
   public static class AutonomousConstants {

@@ -67,9 +67,9 @@ public class Robot extends TimedRobot {
       m_driveForwardAuto.schedule();
     }
 
-    if (m_driveIntervalAuto != null) {
-      m_driveIntervalAuto.schedule();
-    }
+    // if (m_driveIntervalAuto != null) {
+    //   m_driveIntervalAuto.schedule();
+    // }
   }
 
   /** This function is called periodically during autonomous. */

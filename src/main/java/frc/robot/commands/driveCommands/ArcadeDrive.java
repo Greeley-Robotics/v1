@@ -30,10 +30,10 @@ public class ArcadeDrive extends Command {
 
         double leftMovement = realTimeSpeed + realTimeTurn;
         double rightMovement = realTimeSpeed - realTimeTurn;
-        m_drivetrain.sparkMax1.set(leftMovement);
-        m_drivetrain.sparkMax2.set(leftMovement);
-        m_drivetrain.sparkMax3.set(rightMovement);
-        m_drivetrain.sparkMax4.set(rightMovement);
+        m_drivetrain.driveSparkMax1.set(leftMovement);
+        m_drivetrain.driveSparkMax2.set(leftMovement);
+        m_drivetrain.driveSparkMax3.set(-rightMovement);
+        m_drivetrain.driveSparkMax4.set(-rightMovement);
     }
 
     @Override

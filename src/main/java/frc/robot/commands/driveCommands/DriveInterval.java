@@ -10,21 +10,21 @@ public class DriveInterval extends Command {
     public DriveInterval(Drivetrain sub_sys) {
         m_drivetrain = sub_sys;
         addRequirements(sub_sys);
-        m_drivetrain.sparkMax1.set(0.0);
+        m_drivetrain.driveSparkMax1.set(0.0);
     }
 
     
 
 
     public void initialize() {
-        m_drivetrain.sparkMax1.set(0.0);
+        m_drivetrain.driveSparkMax1.set(0.0);
     }
 
     public void execute() {
-        m_drivetrain.sparkMax1.set(0.5);
+        m_drivetrain.driveSparkMax1.set(0.5);
     }
     public void end(boolean interrupted) {
-        m_drivetrain.sparkMax1.stopMotor();
+        m_drivetrain.driveSparkMax1.stopMotor();
     }
 
      public boolean isFinished() {
