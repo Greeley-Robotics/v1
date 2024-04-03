@@ -35,5 +35,6 @@ public final class Constants {
   public static class AutonomousConstants {
     public static final double kAutoDriveForwardSpeed = .5;
     public static final double kTurretThrowSpeed = .3;
+    public static final double kTurretThrowDelay = 3;
   }
 }

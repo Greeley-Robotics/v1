@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 public class Turret extends SubsystemBase {
     public final PWMSparkMax turretSparkMax1;
     public final PWMSparkMax turretSparkMax2;
-
+    
     public Turret(CommandXboxController controller) {
         controller = new CommandXboxController(OperatorConstants.kDriverControllerPort);
         turretSparkMax1 = new PWMSparkMax(TurretConstants.kMotorControllerPort5);

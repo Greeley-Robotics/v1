@@ -7,8 +7,10 @@ package frc.robot;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.driveCommands.ArcadeDrive;
-import frc.robot.commands.driveCommands.DriveForward;
+import frc.robot.commands.driveCommands.*;
+import frc.robot.commands.turretCommands.*;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Turret;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -27,6 +29,7 @@ public class RobotContainer {
 
   // The robot's subsystems and commands are defined here...
   private final Drivetrain m_drivetrain = new Drivetrain(m_driverController);
+  private final Turret m_turret = new Turret(m_driverController);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -48,9 +51,10 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
-    // Schedule `DriveForward` command when a button is pressed
     new Trigger(m_driverController.y())
         .whileTrue(new DriveForward(m_drivetrain));
+    new Trigger(m_driverController.a())
+        .whileTrue(new Shoot(m_turret));
   }
 
   /**
