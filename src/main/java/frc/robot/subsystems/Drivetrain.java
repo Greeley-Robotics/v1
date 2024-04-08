@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -19,6 +20,8 @@ public class Drivetrain extends SubsystemBase {
   public final PWMSparkMax driveSparkMax2;
   public final PWMSparkMax driveSparkMax3;
   public final PWMSparkMax driveSparkMax4;
+  // Use PWMMotorController.addFollower(PWMMotorController) or if using CAN motor controllers, use their method of following.
+  // If we want to group two motors together. We could group driveSparkMax1 and driveSparkMax2 as `leftMotors`
 
   public Drivetrain(CommandXboxController controller) {
     controller = new CommandXboxController(OperatorConstants.kDriverControllerPort);
