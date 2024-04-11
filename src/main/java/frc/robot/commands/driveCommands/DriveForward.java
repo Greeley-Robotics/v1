@@ -29,8 +29,8 @@ public class DriveForward extends Command {
   public void initialize() {
     m_drivetrain.driveSparkMax1.set(0.0);
     m_drivetrain.driveSparkMax2.set(0.0);
-    // m_drivetrain.driveSparkMax3.set(0.0);
-    // m_drivetrain.driveSparkMax4.set(0.0);
+    m_drivetrain.driveSparkMax3.set(0.0);
+    m_drivetrain.driveSparkMax4.set(0.0);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -39,8 +39,8 @@ public class DriveForward extends Command {
     System.out.println("DRIVE FORWARD (DRIVETRAIN) EXECUTING!!!");
     m_drivetrain.driveSparkMax1.set(valToSet);
     m_drivetrain.driveSparkMax2.set(valToSet);
-    // m_drivetrain.driveSparkMax3.set(-valToSet);
-    // m_drivetrain.driveSparkMax4.set(-valToSet);
+    m_drivetrain.driveSparkMax3.set(-valToSet);
+    m_drivetrain.driveSparkMax4.set(-valToSet);
   }
   
 
