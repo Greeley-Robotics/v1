@@ -19,11 +19,17 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class Drivetrain extends SubsystemBase {
   public final PWMSparkMax sparkMax1;
   public final PWMSparkMax sparkMax2;
+  public final PWMSparkMax sparkMax3;
+  public final PWMSparkMax sparkMax4;
 
   public Drivetrain(CommandXboxController controller) {
     controller = new CommandXboxController(OperatorConstants.kDriverControllerPort);
     sparkMax1 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort1);
     sparkMax2 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort2);
+
+    /* Change later if ports 3 and 4 are used*/
+    sparkMax3 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort14);
+    sparkMax4 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort15);
   }
 
   /**
@@ -33,7 +39,7 @@ public class Drivetrain extends SubsystemBase {
    */
   public Command driveForwardCommand() {
     // Inline construction of command goes here.
-    // Subsystem::RunOnce implicitly requires `this` subsystem.
+    // Subsystem::RunOnce implicitly requires `this` subsystem
     return new DriveForward(this); 
   }
 
