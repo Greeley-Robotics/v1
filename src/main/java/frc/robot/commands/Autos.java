@@ -14,6 +14,10 @@ public final class Autos {
     return subsystem.driveForwardCommand();
   }
 
+  public static Command driveIntervalAuto(Drivetrain subsystem) {
+    return subsystem.driveIntervalCommand();
+  }
+
   private Autos() {
     throw new UnsupportedOperationException("This is a utility class!");
   }
