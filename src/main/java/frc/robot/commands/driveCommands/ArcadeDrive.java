@@ -13,7 +13,7 @@ public class ArcadeDrive extends Command {
                        Supplier<Double> turnFunction) {
         this.speedFunction = speedFunction;
         this.turnFunction = turnFunction;
-        m_drivetrain = subsystem;
+        this.m_drivetrain = subsystem;
         addRequirements(m_drivetrain);
     }
 
@@ -24,14 +24,20 @@ public class ArcadeDrive extends Command {
 
     @Override
     public void execute() {
+        System.out.println("EXECUTing!");
         double realTimeSpeed = speedFunction.get();
         double realTimeTurn = turnFunction.get();
 
-        double movement = realTimeSpeed + realTimeTurn;
-        m_drivetrain.sparkMax1.set(movement);
-        m_drivetrain.sparkMax2.set(movement);
-        m_drivetrain.sparkMax3.set(movement);
-        m_drivetrain.sparkMax4.set(movement);
+        double left = realTimeSpeed + realTimeTurn;
+        double right = realTimeSpeed - realTimeTurn;
+
+        System.out.println(left);
+        System.out.println(-right);
+
+        m_drivetrain.sparkMax1.set(left);
+        m_drivetrain.sparkMax2.set(left);
+        m_drivetrain.sparkMax3.set(-right);
+        m_drivetrain.sparkMax4.set(-right);
     }
 
     @Override

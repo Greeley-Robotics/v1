@@ -32,6 +32,8 @@ public class RobotContainer {
   public RobotContainer() {
     configureBindings();
 
+
+    System.out.println("DEFAULT COMMAND!");
     m_drivetrain.setDefaultCommand(new ArcadeDrive(m_drivetrain,
       () -> m_driverController.getRawAxis(OperatorConstants.kArcadeDriveSpeedAxis),
       () -> m_driverController.getRawAxis(OperatorConstants.kArcadeDriveTurnAxis)

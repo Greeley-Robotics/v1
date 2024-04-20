@@ -41,8 +41,8 @@ public class DriveForward extends Command {
     System.out.println("EXECUTING!!!");
     m_drivetrain.sparkMax1.set(valToSet);
     m_drivetrain.sparkMax2.set(valToSet);
-    m_drivetrain.sparkMax3.set(valToSet);
-    m_drivetrain.sparkMax4.set(valToSet);
+    m_drivetrain.sparkMax3.set(-valToSet);
+    m_drivetrain.sparkMax4.set(-valToSet);
   }
   
 
