@@ -5,6 +5,8 @@
 package frc.robot.subsystems;
 
 import static frc.robot.Constants.DrivetrainConstants;
+
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -22,14 +24,22 @@ public class Drivetrain extends SubsystemBase {
   public final PWMSparkMax sparkMax3;
   public final PWMSparkMax sparkMax4;
 
-  public Drivetrain(CommandXboxController controller) {
-    controller = new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  // Rename to sparkMaxLeftLeader, sparkMaxLeftFollower... for follower and inverted code
+
+  public Drivetrain(Joystick controller) {
+    controller = new Joystick(OperatorConstants.kDriverControllerPort);
     sparkMax1 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort1);
     sparkMax2 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort2);
 
     /* Change later if ports 3 and 4 are used*/
     sparkMax3 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort14);
     sparkMax4 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort15);
+
+    // Follower and Inverted Code
+    // sparkMax1.addFollower(sparkMax2);
+    // sparkMax3.addFollower(sparkMax4);
+
+    // sparkMax3.setInverted(true);
   }
 
   /**

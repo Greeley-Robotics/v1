@@ -9,6 +9,7 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.driveCommands.ArcadeDrive;
 import frc.robot.commands.driveCommands.DriveForward;
 import frc.robot.subsystems.Drivetrain;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -22,8 +23,8 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
+  private final Joystick m_driverController =
+      new Joystick(OperatorConstants.kDriverControllerPort);
 
   // The robot's subsystems and commands are defined here...
   private final Drivetrain m_drivetrain = new Drivetrain(m_driverController);
@@ -35,7 +36,7 @@ public class RobotContainer {
 
     System.out.println("DEFAULT COMMAND!");
     m_drivetrain.setDefaultCommand(new ArcadeDrive(m_drivetrain,
-      () -> m_driverController.getRawAxis(OperatorConstants.kArcadeDriveSpeedAxis),
+      () -> -m_driverController.getRawAxis(OperatorConstants.kArcadeDriveSpeedAxis),
       () -> m_driverController.getRawAxis(OperatorConstants.kArcadeDriveTurnAxis)
     ));
   }
@@ -51,8 +52,8 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `DriveForward` command when a button is pressed
-    new Trigger(m_driverController.y())
-        .whileTrue(new DriveForward(m_drivetrain));
+    // new Trigger(m_driverController.y())
+    //     .whileTrue(new DriveForward(m_drivetrain));
   }
 
   /**

@@ -18,7 +18,7 @@ public final class Constants {
     
 
     public static final int kArcadeDriveSpeedAxis = 1;
-    public static final int kArcadeDriveTurnAxis = 3;
+    public static final int kArcadeDriveTurnAxis = 2;
   }
 
   public static class DrivetrainConstants {
@@ -30,6 +30,6 @@ public final class Constants {
   
 
   public static class AutonomousConstants {
-    public static final double kAutoDriveForwardSpeed = .1;
+    public static final double kAutoDriveForwardSpeed = .5;
   }
 }

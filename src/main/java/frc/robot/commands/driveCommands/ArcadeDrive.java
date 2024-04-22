@@ -24,7 +24,7 @@ public class ArcadeDrive extends Command {
 
     @Override
     public void execute() {
-        System.out.println("EXECUTing!");
+        System.out.println("EXECUTING!");
         double realTimeSpeed = speedFunction.get();
         double realTimeTurn = turnFunction.get();
 
@@ -32,12 +32,16 @@ public class ArcadeDrive extends Command {
         double right = realTimeSpeed - realTimeTurn;
 
         System.out.println(left);
-        System.out.println(right);
+        System.out.println(-right);
 
         m_drivetrain.sparkMax1.set(left);
         m_drivetrain.sparkMax2.set(left);
-        m_drivetrain.sparkMax3.set(right);
-        m_drivetrain.sparkMax4.set(right);
+        m_drivetrain.sparkMax3.set(-right);
+        m_drivetrain.sparkMax4.set(-right);
+
+        // Follower and Inverted Code
+        // m_drivetrain.sparkMax1.set(left);
+        // m_drivetrain.sparkMax3.set(right);
     }
 
     @Override
