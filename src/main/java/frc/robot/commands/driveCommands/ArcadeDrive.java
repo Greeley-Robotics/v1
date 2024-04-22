@@ -31,8 +31,8 @@ public class ArcadeDrive extends Command {
         double left = realTimeSpeed + realTimeTurn;
         double right = realTimeSpeed - realTimeTurn;
 
-        System.out.println(left);
-        System.out.println(-right);
+        // System.out.println(left);
+        // System.out.println(-right);
 
         m_drivetrain.sparkMax1.set(left);
         m_drivetrain.sparkMax2.set(left);
