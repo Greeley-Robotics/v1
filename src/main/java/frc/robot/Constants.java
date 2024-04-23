@@ -18,14 +18,14 @@ public final class Constants {
     
 
     public static final int kArcadeDriveSpeedAxis = 1;
-    public static final int kArcadeDriveTurnAxis = 3;
+    public static final int kArcadeDriveTurnAxis = 2;
   }
 
   public static class DrivetrainConstants {
+    public static final int kMotorControllerPort0 = 0;
     public static final int kMotorControllerPort1 = 1;
     public static final int kMotorControllerPort2 = 2;
-    public static final int kMotorControllerPort14 = 14;
-    public static final int kMotorControllerPort15 = 15;
+    public static final int kMotorControllerPort3 = 3;
   }
   
 

@@ -5,6 +5,9 @@
 package frc.robot.subsystems;
 
 import static frc.robot.Constants.DrivetrainConstants;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -21,15 +24,24 @@ public class Drivetrain extends SubsystemBase {
   public final PWMSparkMax sparkMax2;
   public final PWMSparkMax sparkMax3;
   public final PWMSparkMax sparkMax4;
+  private DifferentialDrive m_robotDrive;
 
-  public Drivetrain(CommandXboxController controller) {
-    controller = new CommandXboxController(OperatorConstants.kDriverControllerPort);
-    sparkMax1 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort1);
-    sparkMax2 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort2);
+  // Rename to sparkMaxLeftLeader, sparkMaxLeftFollower... for follower and inverted code
 
-    /* Change later if ports 3 and 4 are used*/
-    sparkMax3 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort14);
-    sparkMax4 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort15);
+  public Drivetrain(Joystick controller) {
+    controller = new Joystick(OperatorConstants.kDriverControllerPort);
+    sparkMax1 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort0);
+    sparkMax2 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort1);
+    sparkMax3 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort2);
+    sparkMax4 = new PWMSparkMax(DrivetrainConstants.kMotorControllerPort3);
+
+    // Follower and Inverted Code
+    // sparkMax1.addFollower(sparkMax2);
+    // sparkMax3.addFollower(sparkMax4);
+
+    // sparkMax3.setInverted(true);
+
+    // m_robotDrive = new DifferentialDrive(sparkMax1::set, sparkMax3::set);
   }
 
   /**
@@ -69,4 +81,11 @@ public class Drivetrain extends SubsystemBase {
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
+
+  // Hardware should only be accessed in subsystems
+  // Switch to calling this after opposite direction problem fixed
+  // public void setMotors(double left, double right) {
+  //   sparkMax1.set(left);
+  //   sparkMax3.set(-right);
+  // }
 }
